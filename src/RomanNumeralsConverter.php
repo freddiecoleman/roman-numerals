@@ -27,9 +27,13 @@ class RomanNumeralsConverter {
     /**
      * @param $num
      * @return string
+     * @throws InvalidRomanNumeralException
      */
     public function convert($num)
     {
+        if ($num < 1)
+            throw new InvalidRomanNumeralException;
+
         $resp = '';
 
         foreach (static::$lookup as $limit => $glyph)
@@ -46,3 +50,5 @@ class RomanNumeralsConverter {
     }
 
 }
+
+class InvalidRomanNumeralException extends Exception {}

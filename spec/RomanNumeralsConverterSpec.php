@@ -5,6 +5,11 @@ use Prophecy\Argument;
 
 class RomanNumeralsConverterSpec extends ObjectBehavior
 {
+    function it_takes_exception_to_0()
+    {
+        $this->shouldThrow('InvalidRomanNumeralException')->duringConvert(0);
+    }
+
     function it_calculates_the_roman_numeral_for_1()
     {
         $this->convert(1)->shouldReturn('I');
